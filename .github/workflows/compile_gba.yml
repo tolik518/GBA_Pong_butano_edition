@@ -31,3 +31,11 @@ jobs:
          DEVKITPRO: /opt/devkitpro
          DEVKITARM: /opt/devkitpro/devkitARM
          LIBBUTANOBASE: /opt/butano
+
+      - name: Upload artifact
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: pong_butano_edition.gba
+          path: out/pong_butano_edition.gba
+          if-no-files-found: error
