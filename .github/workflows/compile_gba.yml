@@ -1,5 +1,9 @@
 name: Compile GBA
-on: [push]
+
+on:
+  push:
+    branches: [master]
+
 jobs:
  Compile-GBA:
     runs-on: ubuntu-20.04
@@ -21,12 +25,8 @@ jobs:
 
       - name: install dependencies
         run: |
-         sudo apt-get update && \
-         sudo apt-get install make -y --no-install-recommends && \
-         sudo apt-get install git  -y --no-install-recommends && \
-         sudo apt-get install python3 -y --no-install-recommends  && \
-         sudo apt-get install python-is-python3 -y --no-install-recommends  && \
-         sudo apt-get clean
+         sudo apt-get update
+         sudo apt-get install python3 python-is-python3 -y --no-install-recommends
 
       - name: make the .gba
         run: make
