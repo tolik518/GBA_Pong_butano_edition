@@ -1,0 +1,34 @@
+name: Compile GBA
+on: [push]
+jobs:
+ Compile-GBA:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: getting devkitarm
+        run: |
+         docker run --cidfile=c.cid devkitpro/devkitarm:latest "echo" "getting c.cid"
+         docker cp $(cat c.cid):/opt/devkitpro /opt/devkitpro
+         rm c.cid
+
+      - name: getting butano
+        run: git clone https://github.com/GValiente/butano.git /opt/butano
+        env:
+         GIT_SSL_NO_VERIFY: 1
+
+      - name: install dependencies
+        run: |
+         apt-get update && \
+         apt-get install make -y --no-install-recommends && \
+         apt-get install git  -y --no-install-recommends && \
+         apt-get install python3 -y --no-install-recommends  && \
+         apt-get install python-is-python3 -y --no-install-recommends  && \
+         apt-get clean
+
+      - name: build docker image
+        run: make
+        env:
+         DEVKITPRO: /opt/devkitpro
+         DEVKITARM: /opt/devkitpro/devkitARM
