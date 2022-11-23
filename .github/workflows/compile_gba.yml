@@ -19,6 +19,7 @@ jobs:
 
       - name: install dependencies
         run: |
+         echo deb http://deb.debian.org/debian stable main contrib non-free >> /etc/apt/sources.list
          sudo apt-get update
          sudo apt-get install python3 python-is-python3 -y --no-install-recommends
 
