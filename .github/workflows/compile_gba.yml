@@ -17,7 +17,7 @@ jobs:
         with:
           repository: GValiente/butano
           ref: 13.0.0
-          path: /opt/butano
+          path: butano
 
       - name: install dependencies
         run: |
@@ -28,7 +28,7 @@ jobs:
       - name: make the .gba
         run: make
         env:
-         LIBBUTANOBASE: /opt/butano
+         LIBBUTANOBASE: ${{ github.workspace }}/butano
 
       - name: Upload artifact
         if: ${{ success() }}
