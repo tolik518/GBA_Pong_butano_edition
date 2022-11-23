@@ -13,9 +13,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: getting butano
-        run: git clone https://github.com/GValiente/butano.git /opt/butano
-        env:
-         GIT_SSL_NO_VERIFY: 1
+        uses: actions/checkout@v3
+        with:
+          repository: GValiente/butano
+          ref: 13.0.0
+          path: /opt/butano
 
       - name: install dependencies
         run: |
