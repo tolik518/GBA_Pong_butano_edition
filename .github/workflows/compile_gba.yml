@@ -28,8 +28,6 @@ jobs:
       - name: make the .gba
         run: make
         env:
-         DEVKITPRO: /opt/devkitpro
-         DEVKITARM: /opt/devkitpro/devkitARM
          LIBBUTANOBASE: /opt/butano
 
       - name: Upload artifact
