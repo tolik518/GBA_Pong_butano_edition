@@ -11,6 +11,7 @@ jobs:
         run: |
          docker run --cidfile=c.cid devkitpro/devkitarm:latest "echo" "getting c.cid"
          docker cp -L $(cat c.cid):/opt/devkitpro - | tar -x
+         cp devkitpro /opt/devkitpro
          rm c.cid
 
       - name: getting butano
@@ -27,7 +28,7 @@ jobs:
          sudo apt-get install python-is-python3 -y --no-install-recommends  && \
          sudo apt-get clean
 
-      - name: build docker image
+      - name: make the .gba
         run: make
         env:
          DEVKITPRO: /opt/devkitpro
