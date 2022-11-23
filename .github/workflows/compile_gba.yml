@@ -9,28 +9,28 @@ jobs:
     runs-on: ubuntu-20.04
     container: devkitpro/devkitarm
     steps:
-      - name: checkout repo
+      - name: Checkout this repo
         uses: actions/checkout@v3
 
-      - name: getting butano
+      - name: Checkout GValiente/butano
         uses: actions/checkout@v3
         with:
           repository: GValiente/butano
           ref: 13.0.0
           path: butano
 
-      - name: install dependencies
+      - name: Install Dependencies
         run: |
          echo deb http://deb.debian.org/debian stable main contrib non-free >> /etc/apt/sources.list
          sudo apt-get update
          sudo apt-get install python3 python-is-python3 -y --no-install-recommends
 
-      - name: make the .gba
+      - name: Compile
         run: make
         env:
          LIBBUTANOBASE: ${{ github.workspace }}/butano
 
-      - name: Upload artifact
+      - name: Upload Artifact
         if: ${{ success() }}
         uses: actions/upload-artifact@v3
         with:

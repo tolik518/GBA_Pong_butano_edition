@@ -1,0 +1,1 @@
+[![Compile GBA](https://github.com/tolik518/GBA_Pong_butano_edition/actions/workflows/compile_gba.yml/badge.svg)](https://github.com/tolik518/GBA_Pong_butano_edition/actions/workflows/compile_gba.yml)
