@@ -20,12 +20,12 @@ jobs:
 
       - name: install dependencies
         run: |
-         apt-get update && \
-         apt-get install make -y --no-install-recommends && \
-         apt-get install git  -y --no-install-recommends && \
-         apt-get install python3 -y --no-install-recommends  && \
-         apt-get install python-is-python3 -y --no-install-recommends  && \
-         apt-get clean
+         sudo apt-get update && \
+         sudo apt-get install make -y --no-install-recommends && \
+         sudo apt-get install git  -y --no-install-recommends && \
+         sudo apt-get install python3 -y --no-install-recommends  && \
+         sudo apt-get install python-is-python3 -y --no-install-recommends  && \
+         sudo apt-get clean
 
       - name: build docker image
         run: make
