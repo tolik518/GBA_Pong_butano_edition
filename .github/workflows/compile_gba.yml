@@ -7,16 +7,10 @@ on:
 jobs:
  Compile-GBA:
     runs-on: ubuntu-20.04
+    container: devkitpro/devkitarm
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
-
-      - name: getting devkitarm
-        run: |
-         docker run --cidfile=c.cid devkitpro/devkitarm:latest "echo" "getting c.cid"
-         docker cp -L $(cat c.cid):/opt/devkitpro - | tar -x
-         cp -R ./devkitpro /opt/devkitpro
-         rm c.cid
 
       - name: getting butano
         run: git clone https://github.com/GValiente/butano.git /opt/butano
