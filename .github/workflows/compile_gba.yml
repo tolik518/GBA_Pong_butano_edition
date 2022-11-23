@@ -11,7 +11,7 @@ jobs:
         run: |
          docker run --cidfile=c.cid devkitpro/devkitarm:latest "echo" "getting c.cid"
          docker cp -L $(cat c.cid):/opt/devkitpro - | tar -x
-         cp ./devkitpro /opt/devkitpro
+         cp -R ./devkitpro /opt/devkitpro
          rm c.cid
 
       - name: getting butano
