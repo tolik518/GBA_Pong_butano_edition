@@ -32,3 +32,4 @@ jobs:
         env:
          DEVKITPRO: /opt/devkitpro
          DEVKITARM: /opt/devkitpro/devkitARM
+         LIBBUTANOBASE: /opt/butano

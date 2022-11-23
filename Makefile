@@ -25,7 +25,10 @@
 #
 # All directories are specified relative to the project directory where the makefile is found.
 #---------------------------------------------------------------------------------------------------------------------
-LIBBUTANOBASE=/home/developer/Projects/GBA/butano
+ifndef LIBBUTANOBASE
+	LIBBUTANOBASE=/home/developer/Projects/GBA/butano
+endif
+
 LIBBUTANORELATIVE=$(shell realpath --relative-to $(PWD) $(LIBBUTANOBASE)/)
 
 TARGET       :=  out/$(notdir $(CURDIR))
