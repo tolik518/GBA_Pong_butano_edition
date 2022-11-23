@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pong_butano_edition.gba
-          path: out/pong_butano_edition.gba
+          path: out/${{ github.event.repository.name }}.gba
           if-no-files-found: error
