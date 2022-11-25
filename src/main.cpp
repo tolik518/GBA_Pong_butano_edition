@@ -66,7 +66,7 @@ namespace
         text_generator.set_center_alignment();
         text_generator.set_palette_item(bn::sprite_items::variable_8x16_font_yellow.palette_item());
         text_generator.set_one_sprite_per_character(true);
-        text_generator.generate(0, 0, " - T O L I K  5 1 8 -", character_sprites);
+        text_generator.generate(0, 0, "- T O L I K  5 1 8 -", character_sprites);
 
         bn::fixed wiggle_speed = 16;
 
