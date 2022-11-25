@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020-2022 Gustavo Valiente gustavo.valiente@protonmail.com
- * zlib License, see LICENSE file.
- */
-
 #include "bn_core.h"
 #include "bn_math.h"
 #include "bn_format.h"
