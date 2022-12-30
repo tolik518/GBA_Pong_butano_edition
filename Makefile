@@ -71,3 +71,8 @@ run:
 .PHONY: clean_build
 clean_build:
 	rm -f $$(pwd)/build/*
+
+# "act" required for that command (https://github.com/nektos/act)
+.PHONY: test_workflow
+test_workflow:
+	act --graph && act --dryrun
