@@ -23,6 +23,7 @@
 #include "bn_regular_bg_items_pong_start_new_colors.h"
 
 #include "bn_sprite_items_blue_sprite.h"
+#include "bn_sprite_items_ball.h"
 
 #define BG_COLOR bn::color(7, 4, 9)
 #define FRAME_LIMIT 60
@@ -31,8 +32,6 @@ namespace
 {
     void credits()
     {
-        int frame_counter = 0;
-        int frame_counter_limit = 60;
         bn::bg_palettes::set_transparent_color(bn::color(0, 0, 0));
 
         auto customfont = variable_8x16_sprite_font_custom;
@@ -46,8 +45,6 @@ namespace
         text_generator.generate(0, -8, "'2023  Tolik518", character_sprites);
         text_generator.generate(0, 8, "Powered by Butano Engine", character_sprites);
 
-        bn::fixed wiggle_speed = 4;
-
         bn::vector<bn::sprite_ptr, 32> text_sprites;
         while(!bn::keypad::start_pressed())
         {
@@ -58,11 +55,14 @@ namespace
 
     void sprite_move_scene() {
         bn::bg_palettes::set_transparent_color(BG_COLOR);
+
         int x0 = (bn::display::width()/2)-12;
         int x1 = (-(bn::display::width()/2))+12;
+
         bn::sprite_ptr blue_sprite0 = bn::sprite_items::blue_sprite.create_sprite(x0, 0);
         bn::sprite_ptr blue_sprite1 = bn::sprite_items::blue_sprite.create_sprite(x1, 0);
 
+        bn::sprite_ptr red_ball     = bn::sprite_items::ball.create_sprite(40, 40);
 
         while(!bn::keypad::start_pressed())
         {
@@ -80,7 +80,8 @@ namespace
 
             bn::core::update();
         }
-         bn::core::update();
+
+        bn::core::update();
     }
 
     void titlescreen_scene()
