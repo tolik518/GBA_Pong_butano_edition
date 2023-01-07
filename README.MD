@@ -3,3 +3,7 @@
 [![Compiled GBA file](https://github.com/tolik518/GBA_Pong_butano_edition/actions/workflows/compile_gba.yml/badge.svg?)](https://github.com/tolik518/GBA_Pong_butano_edition/actions/workflows/compile_gba.yml)
 
 Just a version of Pong for Game Boy Advance. In contrast to my old [GBA Pong](https://github.com/tolik518/GBA_Pong) version, this project was written in C++ and the [butano engine](https://github.com/GValiente/butano).
+
+Curent State: Not playable!
+
+Download: [Nightly builds](https://returnnull.de/github/GBA_Pong_butano_edition/) Naming scema: [DATE CREATED]_[SHORT COMMIT HASH].zip
