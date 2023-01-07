@@ -5,6 +5,10 @@ pong::Ball::Ball(int x, int  y, int speed, int direction, bn::color color)
     _x = x; _y = y; _speed = speed; _direction = direction; _color = color;
 }
 
+pong::Ball::~Ball()
+{
+
+}
 
 void pong::Ball::update()
 {
@@ -48,7 +52,7 @@ void pong::Ball::draw()
     bn::sprite_ptr ball_sprite = bn::sprite_items::ball.create_sprite(_x, _y);
     _ball_sprite = &ball_sprite;
 
-    // colors contains the colors we want to use for the ball
+    // colors contains the colors we want to use for the ball, idk why we need all 16 though ¯\_(ツ)_/¯
     bn::color colors[] = {
         bn::colors::black, _color, _color, _color,
         _color, _color, _color, _color,

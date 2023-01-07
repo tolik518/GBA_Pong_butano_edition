@@ -51,14 +51,15 @@ namespace
         text_generator.generate(0, 8, "Powered by Butano Engine", character_sprites);
 
         bn::vector<bn::sprite_ptr, 32> text_sprites;
-        while(!bn::keypad::start_pressed())
+        while (!bn::keypad::start_pressed())
         {
             bn::core::update();
         }
         bn::core::update();
     }
 
-    void sprite_move_scene() {
+    void sprite_move_scene()
+    {
         bn::bg_palettes::set_transparent_color(BG_COLOR);
 
         static int x0 = (bn::display::width()/2)-12;
@@ -67,22 +68,22 @@ namespace
         bn::sprite_ptr blue_sprite0 = bn::sprite_items::blue_sprite.create_sprite(x0, 0);
         bn::sprite_ptr blue_sprite1 = bn::sprite_items::blue_sprite.create_sprite(x1, 0);
 
-        // create ball with Ball class
+        // create ball with Ball class and draw it
         pong::Ball red_ball(40, 40, 1, 1, bn::colors::orange);
         red_ball.draw();
 
         // create ball without ball class
         //bn::sprite_ptr red_ball = bn::sprite_items::ball.create_sprite(40, 40);
 
-        while(!bn::keypad::start_pressed())
+        while (!bn::keypad::start_pressed())
         {
-            if(bn::keypad::up_held())
+            if (bn::keypad::up_held())
             {
                 blue_sprite0.set_y(blue_sprite0.y() - 2);
                 blue_sprite1.set_y(blue_sprite1.y() - 2);
 
             }
-            else if(bn::keypad::down_held())
+            else if (bn::keypad::down_held())
             {
                 blue_sprite0.set_y(blue_sprite0.y() + 2);
                 blue_sprite1.set_y(blue_sprite1.y() + 2);
@@ -107,12 +108,15 @@ namespace
         bn::vector<bn::sprite_ptr, 32> text_sprites;
         text_generator.generate(0, 48, "PRESS START", text_sprites);
 
-        while(!bn::keypad::start_pressed())
+        while (!bn::keypad::start_pressed())
         {
             frame_counter++;
-            if (frame_counter%FRAME_LIMIT > 30 ){
+            if (frame_counter%FRAME_LIMIT > 30 )
+            {
                 text_sprites.clear();
-            } else {
+            }
+            else
+            {
                 text_sprites.clear();
                 text_generator.generate(0, 48, "PRESS START", text_sprites);
             }
@@ -120,7 +124,6 @@ namespace
         }
         bn::core::update();
     }
-
 }
 
 
@@ -128,7 +131,7 @@ int main()
 {
     bn::core::init();
 
-    while(true)
+    while (true)
     {
         credits();
 

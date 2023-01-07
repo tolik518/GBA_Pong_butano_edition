@@ -26,6 +26,8 @@ namespace pong
 
         public:
             Ball(int x, int  y, int speed, int direction, bn::color color);
+            ~Ball();
+
             void update();
 
             float x();

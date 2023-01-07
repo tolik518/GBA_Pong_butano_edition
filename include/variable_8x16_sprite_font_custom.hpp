@@ -1,6 +1,8 @@
 /*
  * Copyright (c) 2020-2022 Gustavo Valiente gustavo.valiente@protonmail.com
  * zlib License, see LICENSE file.
+ *
+ * modified by tolik518
  */
 
 #ifndef VARIABLE_8x16_SPRITE_FONT_CUSTOM_H
