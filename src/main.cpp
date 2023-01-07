@@ -21,14 +21,14 @@
 #include "bn_sprite_items_variable_8x16_font_yellow.h"
 
 #include "common_variable_8x16_sprite_font.h"
-#include "variable_8x16_sprite_font_custom.h"
+#include "variable_8x16_sprite_font_custom.hpp"
 
 #include "bn_regular_bg_items_pong_start_new_colors.h"
 
 #include "bn_sprite_items_blue_sprite.h"
 #include "bn_sprite_items_ball.h"
 
-#include "Ball.h"
+#include "Ball.hpp"
 
 #define BG_COLOR bn::color(7, 4, 9)
 #define FRAME_LIMIT 60

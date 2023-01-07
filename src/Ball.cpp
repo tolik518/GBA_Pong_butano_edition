@@ -1,4 +1,4 @@
-#include "Ball.h"
+#include "Ball.hpp"
 
 pong::Ball::Ball(int x, int  y, int speed, int direction, bn::color color)
 {
