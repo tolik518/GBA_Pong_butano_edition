@@ -1,15 +1,18 @@
 #include "bn_core.h"
 #include "bn_math.h"
+#include "bn_colors.h"
 #include "bn_format.h"
 #include "bn_keypad.h"
 #include "bn_display.h"
 #include "bn_sprite_ptr.h"
 #include "bn_bg_palettes.h"
+#include "bn_sprite_palette_ptr.h"
 #include "bn_sprite_text_generator.h"
 #include "bn_regular_bg_actions.h"
 #include "bn_regular_bg_builder.h"
 #include "bn_regular_bg_attributes.h"
-#include "bn_sprite_text_generator.h"
+#include "bn_sprite_palette_item.h"
+
 #include "bn_regular_bg_position_hbe_ptr.h"
 #include "bn_regular_bg_attributes_hbe_ptr.h"
 
@@ -24,6 +27,8 @@
 
 #include "bn_sprite_items_blue_sprite.h"
 #include "bn_sprite_items_ball.h"
+
+#include "Ball.h"
 
 #define BG_COLOR bn::color(7, 4, 9)
 #define FRAME_LIMIT 60
@@ -56,13 +61,18 @@ namespace
     void sprite_move_scene() {
         bn::bg_palettes::set_transparent_color(BG_COLOR);
 
-        int x0 = (bn::display::width()/2)-12;
-        int x1 = (-(bn::display::width()/2))+12;
+        static int x0 = (bn::display::width()/2)-12;
+        static int x1 = (-(bn::display::width()/2))+12;
 
         bn::sprite_ptr blue_sprite0 = bn::sprite_items::blue_sprite.create_sprite(x0, 0);
         bn::sprite_ptr blue_sprite1 = bn::sprite_items::blue_sprite.create_sprite(x1, 0);
 
-        bn::sprite_ptr red_ball     = bn::sprite_items::ball.create_sprite(40, 40);
+        // create ball with Ball class
+        pong::Ball red_ball(40, 40, 1, 1, bn::colors::orange);
+        red_ball.draw();
+
+        // create ball without ball class
+        //bn::sprite_ptr red_ball = bn::sprite_items::ball.create_sprite(40, 40);
 
         while(!bn::keypad::start_pressed())
         {
